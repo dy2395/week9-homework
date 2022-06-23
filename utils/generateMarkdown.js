@@ -1,65 +1,104 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(data) {
+  const licensePicked = data.license;
+
+  let licenseBadge = "";
+
+  if (licensePicked === "MIT") {
+    licenseBadge = `![License](https://img.shields.io/badge/licnese-MIT-blue.svg)`;
+    return licenseBadge;
+  }
+  if (licensePicked === "Apache") {
+    licenseBadge =
+      `![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)`;
+      return licenseBadge;
+  }
+  if (licensePicked === "Boost") {
+    licenseBadge =
+      `![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)`;
+      return licenseBadge;
+  }
+  if (licensePicked === "BDS 3-Clause") {
+    licenseBadge =
+      `![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)`;
+      return licenseBadge;
+  } if (licensePicked === 'None') {
+    return licenseBadge;
+  }
+
+};
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+const renderLicenseTableOfContents = (data) => {
+  const licensePicked = data.license;
+ 
+  if(licensePicked === 'None') {
+    return "";
+ 
+  } else {
+    return "- [License](#license)";
+  }
+};
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(data) {
+  const licensePicked = data.license;
+  
+  if(licensePicked === 'None') {
+    return "";
+ 
+  } else {
+    return `# License
+    ${renderLicenseBadge(data)}`;
+  }
+ }
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(userResponses, userInfo) {
+function generateMarkdown(data) {
   return ` 
-  # ${userResponses.title}
+  # ${data.title}
 
   ## Description
 
-  ${userResponses.description}
+  ${data.description}
 
   ## Table of Contents
 
-  - [Installation](#Installation)
-  - [Usage](#Usage)
-  - [Contributors](#Contributors)
-  - [Test](#Test)
-  - [License] (#License)
-  - [Badges](#Badges)
-  - [Questions](#Questions)
-  - [Github Info](#Github)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributors](#contributors)
+  - [Test](#test)
+  ${renderLicenseTableOfContents(data)}
+  - [Questions](#questions)
  
   ## Installation
 
-  ${userResponses.installation}
+  ${data.installation}
 
   ## Usage
 
-  ${userResponses.usage}
+  ${data.usage}
 
   ## Contributors
 
-  ${userResponses.contributing}
+  ${data.contributing}
   
   ## Test
 
   ${data.test}
 
-  ## License
-
-  ${userResponses.license}
-
-  ## Badges
-
-  ${userResponses.badge}
+  ${renderLicenseSection(data)}
 
   ## Questions
 
-  If you have any questions, contact ${data.email}.
-  Github username: ${data.username}.
+  If you have any questions, contact ${data.email}. <br />
+  Github repo: https://github.com/${data.username}
+
 `;
 }
 
-
+module.exports = {generateMarkdown};
 

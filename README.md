@@ -1,6 +1,39 @@
-# week9-homework
+ 
+  # d
 
-README Generator is created in the hope to generate a readme file conveniently.
+  ## Description
 
-Function should include asking users prompted for information about repository and a README.md is generated with the title of project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions.
+  d
+
+  ## Table of Contents
+
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributors](#contributors)
+  - [Test](#test)
+  
+  - [Questions](#questions)
+ 
+  ## Installation
+
+  d
+
+  ## Usage
+
+  d
+
+  ## Contributors
+
+  d
+  
+  ## Test
+
+  d
+
+  
+
+  ## Questions
+
+  If you have any questions, contact d. <br />
+  Github repo: https://github.com/dy2395
 

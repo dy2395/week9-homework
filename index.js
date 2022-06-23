@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require('fs');
-const generate = require('./utils/generateMarkdown');
+const {generateMarkdown} = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = [{
@@ -35,14 +35,18 @@ const questions = [{
     message: "Enter your tests:"
 },
 {
-    type: "input",
+    type: "list",
     name: "license",
-    message: "Enter your license:"
-},
-{
-    type: "input",
-    name: "badge",
-    message: "Enter your badge:"
+    message: "What license is needed?",
+    choices: ['None', 'MIT', 'Apache', 'Boost', 'BDS 3-Clause'],
+    validate: (licenseInput) => {
+      if (licenseInput)  {
+        return true;
+      } else {
+        console.log("Please enter a license!");
+        return false;
+      } 
+    },
 },
 {
     type: "input",
@@ -58,21 +62,28 @@ const questions = [{
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, err => {
+const writeToFile = (fileName, data)=> {
+    fs.writeFile(fileName, data,function(err) {
         if (err) {
-          return console.log(err);
+            console.log(err);
+        }else{
+            console.log("README.md file has been generated")
         }
       
-        console.log("README.md file has been generated")
+        
     });
 };
 
 // TODO: Create a function to initialize app
-function init() {
-    const userResponses = inquirer.prompt(questions);
-    const markdown = generate(userResponses, userInfo);
-    writeToFile('README.md', markdown);
+const init = () => {
+    inquirer.prompt(questions)
+    .then(function(data){ 
+        writeToFile("Readme.md", generateMarkdown(data))
+        console.log(data)
+    })
+    // const userResponses = inquirer.prompt(questions);
+    // const markdown = generate(userResponses, userInfo);
+    // writeToFile('README.md', markdown);
 }
 
 // Function call to initialize app

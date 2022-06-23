@@ -1,9 +1,8 @@
  
-  # d
+  # Week9-homework README Generator
 
   ## Description
-
-  d
+  
 
   ## Table of Contents
 
@@ -16,24 +15,27 @@
  
   ## Installation
 
-  d
+  
 
   ## Usage
 
-  d
+  
 
   ## Contributors
 
-  d
+  
   
   ## Test
-
-  d
 
   
 
   ## Questions
 
-  If you have any questions, contact d. <br />
+  If you have any questions, contact . <br />
   Github repo: https://github.com/dy2395
+  
+  Walkthrough video: 
+  
+  https://user-images.githubusercontent.com/71238779/175424649-cf95c7c9-19c4-4a64-a0ac-f5ec1c8e2ce6.mp4
+
 
